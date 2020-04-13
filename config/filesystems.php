@@ -59,14 +59,6 @@ return [
 			'driver' => 'local',
 			'root'   => public_path('images/course'),
 		],
-		'video-image'         => [
-			'driver' => 'local',
-			'root'   => public_path('images/videos'),
-		],
-		'video'         => [
-			'driver' => 'local',
-			'root'   => public_path('videos'),
-		],
 		'podcast'      => [
 			'driver' => 'local',
 			'root'   => public_path('podcasts'),
@@ -76,12 +68,29 @@ return [
 			'root'   => public_path('images/podcasts'),
 		],
 
+
+		'videos'      => [
+			'driver' => 'local',
+			'root'   => public_path('videos'),
+		],
+		'video-image' => [
+			'driver' => 'local',
+			'root'   => public_path('images/videos'),
+		],
+		'article' => [
+			'driver' => 'local',
+			'root'   => public_path('images/articles'),
+		],
+
+
 		'public' => [
 			'driver'     => 'local',
 			'root'       => storage_path('app/public'),
 			'url'        => env('APP_URL') . '/storage',
 			'visibility' => 'public',
 		],
+
+
 
 		's3' => [
 			'driver' => 's3',
