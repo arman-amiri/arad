@@ -29,6 +29,7 @@ class CreatePodcastRequest extends FormRequest
 
 		return [
 			'category_id' => 'required|exists:categories,id',
+			'user_id' => 'required|exists:users,id',
 			'title'       => 'required|string',
 			'info'        => 'required|string',
 			'banner'      => 'required|image',

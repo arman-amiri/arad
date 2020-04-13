@@ -19,8 +19,8 @@ class CreateCategoriesTable extends Migration
 			$table->bigIncrements('id');
 			$table->string('title', '255');
 			$table->string('banner', 255)->nullable();
+			$table->softDeletes();
 			$table->timestamps();
-			$table->timestamp('deleted_at')->nullable();
 		});
 	}
 

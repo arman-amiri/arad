@@ -11,6 +11,7 @@ use App\Http\Requests\Auth\ResendVerificationCodeRequest;
 use App\Http\Requests\User\ChangeEmailRequest;
 use App\Http\Requests\User\ChangeEmailSubmitRequest;
 use App\Http\Requests\User\ChangePasswordRequest;
+use App\Sms;
 use App\User;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -52,6 +53,8 @@ class UserService extends BaseService
 
 		//TODO:send email or sms to user
 		Log::info('SEND-REGISTER-CODE-MESSAGE-TO-USER', ['code' => $code]);
+
+
 		return response(['message' => 'کاربر ثبت موقت شد'], 200);
 
 

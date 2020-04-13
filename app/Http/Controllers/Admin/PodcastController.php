@@ -39,6 +39,7 @@ class PodcastController extends Controller
 
 		$m              = new Podcast;
 		$m->category_id = $request->input('category_id');
+		$m->user_id = $request->input('user_id');
 		$m->title       = $request->input('title');
 		$m->publish     = $request->input('publish');
 		$m->info        = $request->input('info');

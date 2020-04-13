@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed duration
  * @property mixed banner
  * @property false|string podcast
+ * @property mixed user_id
  * @method static find($input)
  * @method static paginate(int $int)
  * @method static findOrFail($id)

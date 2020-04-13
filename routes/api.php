@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 /**
  * روت های مربوط به auth رو نگهداری میکنه
  */
+
+
 Route::group([], function($router)
 {
 	$router->group(['namespace' => '\Laravel\Passport\Http\Controllers'], function($router)
@@ -16,6 +18,8 @@ Route::group([], function($router)
 			'uses'       => 'AccessTokenController@issueToken',
 		]);
 	});
+
+
 	$router->post('register', [
 		'as'   => 'user.register',
 		'uses' => 'Auth\authController@register',

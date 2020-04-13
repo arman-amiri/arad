@@ -1,20 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Auth;
+namespace App\Http\Requests\Article;
 
-use App\Rules\MobileRule;
-use http\Env\Response;
 use Illuminate\Foundation\Http\FormRequest;
 
 
-class RegisterVerifyRequest extends FormRequest
+class CreateArticleRequest extends FormRequest
 {
-	use GetRegisterFieldAndValue;
-
-
-
 	/**
-	 *
 	 * Determine if the user is authorized to make this request.
 	 *
 	 * @return bool
@@ -35,11 +28,13 @@ class RegisterVerifyRequest extends FormRequest
 	{
 
 		return [
-			'code'   => 'required|string',
-			'mobile' => ['required_without:email', new MobileRule],
-			'email'  => 'required_without:mobile|email',
+			'category_id' => 'required|exists:categories,id',
+			'user_id'     => 'required|exists:users,id',
+			'title'       => 'required|string',
+			'article'     => 'required',
+			'banner'      => 'required|image',
+			'publish'     => 'required',
 		];
+
 	}
-
-
 }

@@ -25,6 +25,7 @@ class CreateCoursesTable extends Migration
 			$table->enum('publish', \App\Course::PUBLISH)->default(\App\Course::PUBLISH_N);
 			$table->enum('type_holding', \App\Course::TYPE_HOLDING)->default(\App\Course::TYPE_HOLDING_VIRTUAL);
 			$table->text('info')->nullable();
+			$table->softDeletes();
 			$table->timestamps();
 
 

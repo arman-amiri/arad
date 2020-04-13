@@ -34,8 +34,8 @@ class RegisterRequest extends FormRequest
 	 */
 	public function rules()
 	{
-
 		return [
+
 			'mobile' => ['required_without:email', new MobileRule],
 			'email'  => 'required_without:mobile|email',
 		];

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Video;
+namespace App\Http\Requests\Article;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateVideoRequest extends FormRequest
+class updateArticleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,19 +23,13 @@ class UpdateVideoRequest extends FormRequest
      */
     public function rules()
     {
-
-
-		return [
-			'id'        => 'required|exists:videos,id',
+        return [
+			'id'        => 'required|exists:articles,id',
 			'category_id' => 'required|exists:categories,id',
-			'course_id' => 'required|exists:courses,id',
 			'user_id' => 'required|exists:users,id',
-			'video' => 'nullable|mimes:mp4|max:1000000',
 			'title' => 'required|string',
-			'info' => 'required|string',
-			'publish' => 'required',
-			'banner' => 'nullable',
-		];
-
+			'article' => 'required|string',
+			'banner' => 'required|image',
+        ];
     }
 }

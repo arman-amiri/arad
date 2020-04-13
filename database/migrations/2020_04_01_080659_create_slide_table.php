@@ -22,6 +22,7 @@ class CreateSlideTable extends Migration
 			$table->enum('published', \App\Slide::PUBLISH)->default(\App\Slide::PUBLISH_N);
 			$table->string('image', 255);
 			$table->timestamp('expired_at');
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

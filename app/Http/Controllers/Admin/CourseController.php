@@ -9,10 +9,12 @@ use App\Http\Requests\Course\CreateCourseRequest;
 use App\Http\Requests\Course\UpdateCourseRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Console\Input\Input;
 
 
 class CourseController extends Controller
 {
+
 	public function index()
 	{
 		$record = Course::paginate(2);
@@ -36,6 +38,7 @@ class CourseController extends Controller
 	 */
 	public function insert(CreateCourseRequest $request)
 	{
+		// dd($request->info);
 
 		$m               = new Course;
 		$m->title        = $request->input('title');

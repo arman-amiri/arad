@@ -37,7 +37,6 @@ class VideoController extends Controller
 
 	public function insert(UploadVideoRequest $request)
 	{
-
 		$m              = new Video;
 		$m->category_id = $request->input('category_id');
 		$m->course_id   = $request->input('course_id');
@@ -46,7 +45,8 @@ class VideoController extends Controller
 		$m->info        = $request->input('info');
 		$m->publish     = $request->input('publish');
 		$m->duration    = $request->input('duration');
-		$m->video       = $request->file('video')->store('', 'video');
+		$m->slug        = '123456';
+		$m->video       = $request->file('video')->store('', 'videos');
 
 		if ($request->hasFile('banner'))
 		{
@@ -59,14 +59,12 @@ class VideoController extends Controller
 
 
 		/** @var Media $video */
-		$video       = FFMpegFacade::fromDisk('video')->open($m->video);
+		$video       = FFMpegFacade::fromDisk('videos')->open($m->video);
 		$m->duration = $video->getDurationInSeconds();
-
 
 		$m->save();
 
 		return redirect()->action('Admin\VideoController@index')->with('inserted', true);
-
 	}
 
 
@@ -113,10 +111,10 @@ class VideoController extends Controller
 			{
 				unlink($address);
 			}
-			$m->video = $request->file('video')->store('', 'video');
+			$m->video = $request->file('video')->store('', 'videos');
 		}
 
-		$video       = FFMpegFacade::fromDisk('video')->open($m->video);
+		$video       = FFMpegFacade::fromDisk('videos')->open($m->video);
 		$m->duration = $video->getDurationInSeconds();
 
 
@@ -141,8 +139,8 @@ class VideoController extends Controller
 		$m = Video::findOrFail($r->id);
 
 
-		$address = public_path('images\\videos' . '\\' . $m->banner, 'video-image');
-		$address1 = public_path('videos' . '\\' . $m->video, 'video');
+		$address  = public_path('images\\videos' . '\\' . $m->banner);
+		$address1 = public_path('videos' . '\\' . $m->video);
 
 		if (file_exists($address))
 		{
@@ -171,4 +169,5 @@ class VideoController extends Controller
 
 		return redirect()->back()->with('toggled', true);
 	}
+
 }

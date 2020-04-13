@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 
-class CreateVideosTable extends Migration
+class TableArticlesCreate extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -14,19 +14,15 @@ class CreateVideosTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('videos', function(Blueprint $table)
+		Schema::create('articles', function(Blueprint $table)
 		{
 			$table->bigIncrements('id');
 			$table->unsignedBigInteger('user_id')->nullable();
 			$table->unsignedBigInteger('category_id');
-			$table->unsignedBigInteger('course_id');
-			$table->string('slug');
-			$table->string('video');
 			$table->string('title');
-			$table->string('duration')->nullable();
-			$table->string('banner')->nullable();
-			$table->text('info')->nullable();
-			$table->enum('publish', \App\Video::PUBLISH)->default(\App\Video::PUBLISH_N);
+			$table->string('banner');
+			$table->text('article');
+			$table->enum('publish', \App\Article::PUBLISH)->default(\App\Article::PUBLISH_N);
 			$table->softDeletes();
 			$table->timestamps();
 
@@ -43,12 +39,6 @@ class CreateVideosTable extends Migration
 				->on('categories')
 				->onDelete('cascade')
 				->onUpdate('cascade');
-
-			$table->foreign('course_id')
-				->references('id')
-				->on('courses')
-				->onDelete('cascade')
-				->onUpdate('cascade');
 		});
 	}
 
@@ -61,6 +51,6 @@ class CreateVideosTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('uploads');
+		Schema::dropIfExists('articles');
 	}
 }

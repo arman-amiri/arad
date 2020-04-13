@@ -24,6 +24,7 @@ class CreatePodcastTable extends Migration
 			$table->string('duration')->nullable();
 			$table->enum('publish', \App\Podcast::PUBLISH)->default(\App\Podcast::PUBLISH_N);
 			$table->text('info')->nullable();
+			$table->softDeletes();
 			$table->timestamps();
 
 			$table->foreign('category_id')

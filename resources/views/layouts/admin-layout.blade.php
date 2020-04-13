@@ -7,7 +7,9 @@
 	<link href="{{ asset('css/admin-layout.css')}}" rel="stylesheet">
 	{{--<link rel="stylesheet" type="text/css" href="{{ asset('admin-layout.css')}}">--}}
 	<link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
+	{{--<link rel="stylesheet" href="{{asset("css/fonts/font-face.css")}}">--}}
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 	<title>Document</title>
 </head>
 <body>
@@ -90,7 +92,6 @@
 							<div class="title">دسته بندی</div>
 						</li>
 					</a>
-
 					<a href="{{ action('Admin\CourseController@index') }}">
 						<li class=" {{ request()->is('admin/home/courses*') ? 'sidebar-active' : '' }}">
 							<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 476.16 476.16" xml:space="preserve" width="512px" height="512px"><g>
@@ -103,7 +104,6 @@
 							<div class="title">دوره ها</div>
 						</li>
 					</a>
-
 					<a href="{{ action('Admin\VideoController@index') }}">
 						<li class=" {{ request()->is('admin/home/videos*') ? 'sidebar-active' : '' }}">
 							<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 476.16 476.16" xml:space="preserve" width="512px" height="512px"><g>
@@ -116,7 +116,6 @@
 							<div class="title">فیلم ها</div>
 						</li>
 					</a>
-
 					<a href="{{ action('Admin\PodcastController@index') }}">
 						<li class=" {{ request()->is('admin/home/podcasts*') ? 'sidebar-active' : '' }}">
 							<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 476.16 476.16" xml:space="preserve" width="512px" height="512px"><g>
@@ -129,7 +128,6 @@
 							<div class="title">پادکست ها</div>
 						</li>
 					</a>
-
 					<a href="{{ action('Admin\ArticleController@index') }}">
 						<li class=" {{ request()->is('admin/home/articles*') ? 'sidebar-active' : '' }}">
 							<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 476.16 476.16" xml:space="preserve" width="512px" height="512px"><g>
@@ -142,7 +140,6 @@
 							<div class="title">مقالات</div>
 						</li>
 					</a>
-
 					<a href="{{ action('Admin\SlideController@index') }}">
 						<li class=" {{ request()->is('admin/home/slides*') ? 'sidebar-active' : '' }}">
 							<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 476.16 476.16" xml:space="preserve" width="512px" height="512px"><g>
@@ -167,6 +164,6 @@
 
 </div>
 
-
 </body>
 </html>
+
