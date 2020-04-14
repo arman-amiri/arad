@@ -32,6 +32,7 @@ class UserService extends BaseService
 
 		$field = $request->getFiledName();
 		$value = $request->getFieldValue();
+
 		//اگر کاربر از قبل ثبت نام کرده باشد باید روال ثبت نام را قطع کنیم.
 		if ($user = User::where($field, $value)->first())
 		{
@@ -51,9 +52,10 @@ class UserService extends BaseService
 		]);
 
 
-		//TODO:send email or sms to user
-		Log::info('SEND-REGISTER-CODE-MESSAGE-TO-USER', ['code' => $code]);
-
+		// Log::info('SEND-REGISTER-CODE-MESSAGE-TO-USER', ['code' => $code]);
+		$code = $code . "کد عضویت در وب سایت آراد";
+		$sms  = new Sms();
+		$sms->sendSMS($value, $code);
 
 		return response(['message' => 'کاربر ثبت موقت شد'], 200);
 
@@ -108,9 +110,11 @@ class UserService extends BaseService
 				$user->save();
 			}
 
-			//TODO:send email or sms to user
-			Log::info('RESEND-REGISTER-CODE-MESSAGE-TO-USER', ['code' => $user->verify_code]);
 
+			// Log::info('RESEND-REGISTER-CODE-MESSAGE-TO-USER', ['code' => $user->verify_code]);
+			$code = $user->verify_code;
+			$sms  = new Sms();
+			$sms->sendSMS($value, $code);
 			return response([
 				'message' => 'کد مجددا برای شما ارسال گردید.',
 			], 200);
