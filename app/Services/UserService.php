@@ -33,6 +33,7 @@ class UserService extends BaseService
 		$field = $request->getFiledName();
 		$value = $request->getFieldValue();
 
+
 		//اگر کاربر از قبل ثبت نام کرده باشد باید روال ثبت نام را قطع کنیم.
 		if ($user = User::where($field, $value)->first())
 		{

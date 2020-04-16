@@ -16,7 +16,7 @@ class UserController extends Controller
 
 	public function index()
 	{
-		$records = User::Paginate(10);
+		$records = User::Paginate(1);
 
 		return view('admin.users.index')
 			->with('records', $records);

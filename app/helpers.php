@@ -11,7 +11,8 @@ if (!function_exists('to_valid_mobile_number'))
 	 */
 	function to_valid_mobile_number(string $mobile)
 	{
-		return $mobile = '+98' . substr($mobile, -10, 10);
+		return $mobile = '0'. substr($mobile, -10, 10);
+		// return $mobile = '+98' . substr($mobile, -10, 10);
 	}
 }
 

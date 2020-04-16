@@ -20,7 +20,7 @@ class CreatePaymentTable extends Migration
 			$table->string('course_id')->default('VIP');
 
 			$table->unsignedBigInteger('user_id');
-			$table->string('resnumber');
+			$table->string('authority');
 			$table->string('price');
 			$table->boolean('payment')->default(false);
 			$table->timestamps();

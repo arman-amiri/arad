@@ -27,7 +27,7 @@ class UpdateCourseRequest extends FormRequest
 			'id'        => 'required|exists:courses,id',
 			'category_id' => 'required|exists:categories,id',
 			'title' => 'required|string',
-			'price' => 'required|string',
+			'price' => 'nullable|string',
 			'teacher_name' => 'required|string',
 			'info' => 'required|string',
 			'banner'     => 'nullable|image',

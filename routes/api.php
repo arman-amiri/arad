@@ -68,3 +68,18 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/video'], function($route
 		'uses' => 'Admin\VideoController@upload',
 	]);
 });
+
+
+Route::prefix('home')->group(function()
+{
+	Route::get('slides', 'Api\HomeController@slide');
+	Route::get('courses', 'Api\HomeController@course');
+	Route::get('courses/{id}', 'Api\HomeController@theproduct');
+});
+
+Route::prefix('zarinpal')->group(function()
+{
+	Route::get('payment', 'Api\ZarinpalController@payment');
+	Route::get('check', 'Api\ZarinpalController@check');
+
+});

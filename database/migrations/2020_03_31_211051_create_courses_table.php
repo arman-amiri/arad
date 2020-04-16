@@ -19,7 +19,7 @@ class CreateCoursesTable extends Migration
 			$table->bigIncrements('id');
 			$table->unsignedBigInteger('category_id');
 			$table->string('title', '255');
-			$table->string('price', '100')->default('free');
+			$table->string('price', '100')->default('0');
 			$table->string('teacher_name', '255')->default('unknown');
 			$table->string('banner')->nullable();
 			$table->enum('publish', \App\Course::PUBLISH)->default(\App\Course::PUBLISH_N);

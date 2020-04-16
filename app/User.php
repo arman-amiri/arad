@@ -5,7 +5,9 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\App;
 use Laravel\Passport\HasApiTokens;
+use App\Learn;
 
 
 class User extends Authenticatable
@@ -83,8 +85,22 @@ class User extends Authenticatable
 	{
 		return $this->hasMany('App\Video', 'user_id', 'id');
 	}
+
+
+
 	public function payments()
 	{
 		return $this->hasMany('App\Payment', 'user_id', 'id');
+	}
+
+
+
+	protected function courseLearning($record)
+	{
+
+		$k = !!Learn::where('user_id', auth()->id())
+			->where('course_id', $record->id)->first();
+
+		return $k;
 	}
 }

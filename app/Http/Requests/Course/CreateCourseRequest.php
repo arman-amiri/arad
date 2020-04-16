@@ -26,7 +26,7 @@ class CreateCourseRequest extends FormRequest
         return [
             'category_id' => 'required|exists:categories,id',
             'title' => 'required|string',
-            'price' => 'required|string',
+            'price' => 'nullable|string',
             'teacher_name' => 'required|string',
             'info' => 'required|string',
             'type_holding' => 'required',

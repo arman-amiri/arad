@@ -17,6 +17,15 @@ Route::middleware('auth')->prefix('admin')->group(function()
 		Route::post('delete', 'Admin\UserController@delete');
 	});
 
+	Route::prefix('FinancialTransactions')->group(function()
+	{
+		Route::get('successful', 'Admin\FinancialTransactionsController@successful');
+		Route::get('unsuccessful', 'Admin\FinancialTransactionsController@unsuccessful');
+		Route::get('remove/{id}', 'Admin\FinancialTransactionsController@remove');
+		Route::post('delete', 'Admin\FinancialTransactionsController@delete');
+	});
+
+
 	Route::prefix('home')->group(function()
 	{
 		Route::prefix('categories')->group(function()
@@ -102,24 +111,19 @@ Route::middleware('auth')->prefix('admin')->group(function()
 });
 
 
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
-	function()
-	{
-		\UniSharp\LaravelFilemanager\Lfm::routes();
-	});
-
-
-Route::group(['middleware' =>['auth']] , function(){
-
-	Route::post('/course/payment' , 'ZarinPal\PaymentController@payment');
-	Route::post('/course/payment/check' , 'ZarinPal\PaymentController@check');
-
+Route::group(['middleware' => ['auth:web']], function()
+{
+	Route::post('payment', 'ZarinPal\PaymentController@payment');
+	Route::get('check', 'ZarinPal\PaymentController@check');
 });
 
 Route::get('/', 'Admin\PageController@index');
 Route::get('login', 'Admin\PageController@login')->name('login');
 Route::post('auth', 'Admin\PageController@auth')->name('auth');
 Route::get('logout', 'Admin\PageController@logout');
-
-
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']],
+	function()
+	{
+		\UniSharp\LaravelFilemanager\Lfm::routes();
+	});
 
