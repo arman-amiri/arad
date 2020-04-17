@@ -4,7 +4,7 @@
 
 
 	<div class="header">
-		<div class="page-title">ویرایش کاربر</div>
+		<div class="page-title">ویرایش ادمین</div>
 		<div class="page-toolbar">
 
 		</div>
@@ -12,7 +12,7 @@
 	<div class="notice">
 		@if(session('updated'))
 			<div class="alert alert-success">
-				<div class="title">آهان!</div>
+				<div class="title">عملیات موفقیت آمیز بود.</div>
 				تغییرات با موفقیت ذخیره شد.
 			</div>
 		@endif
@@ -23,7 +23,7 @@
 		<div class="page-status"></div>
 
 		<div class="page-form">
-			<form action="{{ action('Admin\PanelUserController@update') }}" method="post" enctype="multipart/form-data">
+			<form action="{{ action('Admin\AdminController@update') }}" method="post" enctype="multipart/form-data">
 				@csrf
 
 				<input type="hidden" name="id" value="{{ $record->id }}">
@@ -118,7 +118,7 @@
 				</div>
 				<div class="actions">
 					<button class="btn btn-lg btn-success">ذخیره</button>
-					<a href="{{ action('Admin\PanelUserController@index') }}" class="btn btn-lg btn-light">بازگشت</a>
+					<a href="{{ action('Admin\AdminController@index') }}" class="btn btn-lg btn-light">بازگشت</a>
 				</div>
 
 			</form>

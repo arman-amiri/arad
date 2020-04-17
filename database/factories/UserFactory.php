@@ -24,7 +24,7 @@ $factory->define(User::class, function(Faker $faker)
 		'name'              => $faker->name,
 		'email'             => $faker->unique()->safeEmail,
 		'password'          => '$2y$10$HJoiRBuivtopycBruXP/2uL12lrnsQaj9ep9Kul9Cy/P6Td56mobW', // 123456
-		'type'              => \App\User::TYPE_USER,
+		'level'              => \App\User::LEVEL_USER,
 		'mobile'            => '093380' . random_int(11111, 99999),
 		'avatar'            => null,
 		'verify_code'     => null,

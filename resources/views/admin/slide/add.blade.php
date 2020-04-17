@@ -64,9 +64,9 @@
 
 							<div class="form-group rtl">
 								<label>تاریخ انقضا</label>
-								<input id="expiredAt-alt" name="expiredAt" type="hidden">
-								<input readonly id="expiredAt" type="text" class="form-control form-control-lg {{ $errors->has('expiredAt') ? 'is-invalid' : '' }}" value="{{ old('expiredAt') }}">
-								<div class="invalid-feedback">{{ $errors->first('expiredAt') }}</div>
+								<input id="expired-at-alt" name="expired-at" type="hidden">
+								<input  id="expired-at" type="text" class="form-control form-control-lg {{ $errors->has('expired-at') ? 'is-invalid' : '' }}" value="{{ old('expired-at') }}">
+								<div class="invalid-feedback">{{ $errors->first('expired-at') }}</div>
 							</div>
 						</div>
 
@@ -86,8 +86,8 @@
 	</div>
 
 	<script>
-		$('#expiredAt').pDatepicker({
-			altField: '#expiredAt-alt',
+		$('#expired-at').pDatepicker({
+			altField: '#expired-at-alt',
 			altFieldFormatter: (unix) =>
 			{
 				return moment(unix).format("YYYY-MM-DD HH:mm:ss");

@@ -13,22 +13,6 @@ use App\User;
 class UserController extends Controller
 {
 
-
-	public function index()
-	{
-		$records = User::Paginate(1);
-
-		return view('admin.users.index')
-			->with('records', $records);
-
-	}
-
-	public function add()
-	{
-		return view('admin.users.add');
-	}
-
-
 	/**
 	 *  تغییر ایمیل کاربر
 	 * @param ChangeEmailRequest $request
@@ -40,6 +24,7 @@ class UserController extends Controller
 	}
 
 
+
 	/**
 	 * تایید تغییر ایمیل کاربر
 	 * @param ChangeEmailSubmitRequest $request
@@ -49,6 +34,7 @@ class UserController extends Controller
 	{
 		return UserService::changeEmailSubmit($request);
 	}
+
 
 
 	public function changePassword(ChangePasswordRequest $request)

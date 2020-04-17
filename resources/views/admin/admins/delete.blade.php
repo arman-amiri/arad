@@ -5,7 +5,7 @@
 	<div class="page">
 		<header class="header">
 			<div class="title">
-				حذف کاربر
+				حذف ادمین
 				[{{ \Illuminate\Support\Str::words($record->name, 20) }}]
 			</div>
 			<div class="toolbar">
@@ -32,7 +32,7 @@
 				حذف یک فرایند بدون بازگشت است.
 			</div>
 			<div class="page-form">
-				<form action="{{ action('Admin\PanelUserController@delete') }}" method="post">
+				<form action="{{ action('Admin\AdminController@delete') }}" method="post">
 
 					@csrf
 					<input type="hidden" name="id" value="{{ $record->id }}">
@@ -41,7 +41,7 @@
 
 						<div class="actions">
 							<button class="btn btn-lg btn-danger">حذف</button>
-							<a href="{{ action('Admin\PanelUserController@index') }}" class="btn btn-lg btn-light">بازگشت</a>
+							<a href="{{ action('Admin\AdminController@index') }}" class="btn btn-lg btn-light">بازگشت</a>
 						</div>
 					</div>
 				</form>

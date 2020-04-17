@@ -52,6 +52,15 @@ table {
   border-spacing: 0;
 }
 
+@font-face {
+  font-family: "Vazir";
+  src: url("../../public/css/fonts/Vazir-Bold.eot");
+  src: url("../../public/css/fonts/Vazir-Bold.eot") format("embedded-opentype"), url("../../public/css/fonts/Vazir-Bold.woff2") format("woff2"), url("../../public/css/fonts/Vazir-Bold.woff") format("woff"), url("../../public/css/fonts/Vazir-Bold.ttf") format("truetype");
+}
+a {
+  text-decoration: none !important;
+}
+
 #body #header {
   display: flex;
   direction: rtl;
@@ -66,6 +75,7 @@ table {
   border-bottom: 1px solid #4b545c;
 }
 #body #header .header {
+  font-family: Vazir !important;
   width: calc(100% - 250px);
   position: absolute;
   left: 0;
@@ -128,6 +138,7 @@ table {
 }
 #body .body .nav ul li {
   display: flex;
+  font-family: Vazir !important;
   padding-bottom: 15px;
   padding-top: 15px;
   padding-right: 19px;
@@ -166,6 +177,7 @@ table {
 #body .body .content .header .page-title {
   align-self: center;
   text-align: center;
+  font-family: Vazir;
 }
 #body .body .content .header .page-toolbar {
   align-self: center;
@@ -272,12 +284,7 @@ table {
   padding: 0;
   background-color: transparent;
 }
-#body .body .content #page .paginate {
-  width: 100%;
-  display: inline-flex;
-  margin-right: calc(100% - 186px);
-}
-#body .body .content #page .paginate nav.pagination.active {
+#body .body .content #page nav.pagination.active {
   padding: 0;
 }
 
@@ -326,6 +333,22 @@ table {
 .alert-delete {
   width: calc(100% - 77px);
   margin-right: 30px;
+}
+
+.pagination {
+  display: flex;
+  width: auto;
+  flex-direction: row-reverse;
+  border-radius: 8px;
+  list-style: none;
+  padding: 10px;
+  margin-bottom: 150px;
+  margin-left: 34px;
+  background-color: #e9ebee;
+}
+
+label, table {
+  font-family: Vazir;
 }
 
 /*# sourceMappingURL=admin-layout.css.map */

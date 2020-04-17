@@ -10,16 +10,29 @@ use Laravel\Passport\HasApiTokens;
 use App\Learn;
 
 
+/**
+ * @property mixed name
+ * @property mixed mobile
+ * @property mixed active
+ * @property mixed expired_at
+ * @property string password
+ * @property mixed level
+ * @property false|string avatar
+ */
 class User extends Authenticatable
 {
 	use Notifiable, HasApiTokens;
 
 	protected $table = 'users';
 
-	const TYPE_ADMIN = 'admin';
-	const TYPE_USER  = 'user';
-	const TYPES      = [self::TYPE_USER, self::TYPE_ADMIN];
+	const LEVEL_ADMIN = 'admin';
+	const LEVEL_USER  = 'user';
+	const LEVELS      = [self::LEVEL_USER, self::LEVEL_ADMIN];
 
+
+	const ACTIVE_YES = 'Y';
+	const ACTIVE_NO = 'N';
+	const ACTIVES = [self::ACTIVE_YES , self::ACTIVE_NO ];
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -32,7 +45,7 @@ class User extends Authenticatable
 			'mobile',
 			'name',
 			'password',
-			'type',
+			'level',
 			'avatar',
 			'verify_code',
 			'verified_at',

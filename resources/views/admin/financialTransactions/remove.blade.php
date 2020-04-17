@@ -5,8 +5,8 @@
 	<div class="page">
 		<header class="header">
 			<div class="title">
-				حذف کاربر
-				[{{ \Illuminate\Support\Str::words($record->name, 20) }}]
+				حذف پرداخت
+				[{{ \Illuminate\Support\Str::words($record->title, 20) }}]
 			</div>
 			<div class="toolbar">
 
@@ -22,7 +22,7 @@
 		@if(session('not-empty'))
 			<div class="alert alert-danger">
 				<div class="title">خطا!</div>
-				این رکورد به دلیل متصل بودن به تعدادی /// نمی تواند حذف شود.
+				این رکورد به دلیل متصل بودن به تعدادی شهید نمی تواند حذف شود.
 			</div>
 		@endif
 
@@ -32,7 +32,7 @@
 				حذف یک فرایند بدون بازگشت است.
 			</div>
 			<div class="page-form">
-				<form action="{{ action('Admin\PanelUserController@delete') }}" method="post">
+				<form action="{{ action('Admin\ArticleController@delete') }}" method="post">
 
 					@csrf
 					<input type="hidden" name="id" value="{{ $record->id }}">
@@ -41,7 +41,7 @@
 
 						<div class="actions">
 							<button class="btn btn-lg btn-danger">حذف</button>
-							<a href="{{ action('Admin\PanelUserController@index') }}" class="btn btn-lg btn-light">بازگشت</a>
+							<a href="{{ action('Admin\ArticleController@index') }}" class="btn btn-lg btn-light">بازگشت</a>
 						</div>
 					</div>
 				</form>

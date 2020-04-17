@@ -6,26 +6,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->prefix('admin')->group(function()
 {
-	Route::prefix('users')->group(function()
-	{
-		Route::get('index', 'Admin\UserController@index');
-		Route::get('add', 'Admin\UserController@add');
-		Route::Post('insert', 'Admin\UserController@insert');
-		Route::get('edit/{id}', 'Admin\UserController@edit');
-		Route::post('update', 'Admin\UserController@update');
-		Route::get('remove/{id}', 'Admin\UserController@remove');
-		Route::post('delete', 'Admin\UserController@delete');
-	});
-
-	Route::prefix('FinancialTransactions')->group(function()
-	{
-		Route::get('successful', 'Admin\FinancialTransactionsController@successful');
-		Route::get('unsuccessful', 'Admin\FinancialTransactionsController@unsuccessful');
-		Route::get('remove/{id}', 'Admin\FinancialTransactionsController@remove');
-		Route::post('delete', 'Admin\FinancialTransactionsController@delete');
-	});
-
-
 	Route::prefix('home')->group(function()
 	{
 		Route::prefix('categories')->group(function()
@@ -108,6 +88,43 @@ Route::middleware('auth')->prefix('admin')->group(function()
 			Route::get('togglePublished/{id}', 'Admin\SlideController@togglePublished');
 		});
 	});
+
+	Route::prefix('users')->group(function()
+	{
+		Route::prefix('user')->group(function()
+		{
+			Route::get('index', 'Admin\PanelUserController@index');
+			Route::get('add', 'Admin\PanelUserController@add');
+			Route::Post('insert', 'Admin\PanelUserController@insert');
+			Route::get('edit/{id}', 'Admin\PanelUserController@edit');
+			Route::post('update', 'Admin\PanelUserController@update');
+			Route::get('remove/{id}', 'Admin\PanelUserController@remove');
+			Route::post('delete', 'Admin\PanelUserController@delete');
+		});
+
+		Route::prefix('admins')->group(function()
+		{
+			Route::get('index', 'Admin\AdminController@index');
+			Route::get('add', 'Admin\AdminController@add');
+			Route::Post('insert', 'Admin\AdminController@insert');
+			Route::get('edit/{id}', 'Admin\AdminController@edit');
+			Route::post('update', 'Admin\AdminController@update');
+			Route::get('remove/{id}', 'Admin\AdminController@remove');
+			Route::post('delete', 'Admin\AdminController@delete');
+		});
+	});
+
+	Route::prefix('financial')->group(function()
+	{
+
+			Route::get('successful', 'Admin\FinancialTransactionsController@successful');
+			Route::get('unsuccessful', 'Admin\FinancialTransactionsController@unsuccessful');
+			Route::get('remove/{id}', 'Admin\FinancialTransactionsController@remove');
+			Route::post('delete', 'Admin\FinancialTransactionsController@delete');
+
+	});
+
+
 });
 
 

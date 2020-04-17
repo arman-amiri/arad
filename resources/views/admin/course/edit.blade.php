@@ -53,6 +53,12 @@
 								</textarea>
 								<div class="invalid-feedback">{{ $errors->first('info') }}</div>
 							</div>
+
+							<hr>
+							<textarea readonly id="arman" h>
+								{{ old('info' , $record->info) }}
+							</textarea>
+
 						</div>
 					</div>
 					<div class="col-md-4">
@@ -117,6 +123,7 @@
 		</div>
 	</div>
 
+
 @endsection
 
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
@@ -163,3 +170,4 @@
 
 
 </script>
+

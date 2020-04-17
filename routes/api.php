@@ -44,16 +44,16 @@ Route::group(['middleware' => 'auth:api'], function($router)
 {
 	$router->post('changeEmail', [
 		'as'   => 'change.email',
-		'uses' => 'Admin\UserController@changeEmail',
+		'uses' => 'Api\UserController@changeEmail',
 	]);
 	$router->post('changeEmailSubmit', [
 		'as'   => 'change.email.submit',
-		'uses' => 'Admin\UserController@changeEmailSubmit',
+		'uses' => 'Api\UserController@changeEmailSubmit',
 	]);
 
 	$router->match(['post', 'put'], 'changePassword', [
 		'as'   => 'password.change',
-		'uses' => 'Admin\UserController@changePassword',
+		'uses' => 'Api\UserController@changePassword',
 	]);
 });
 

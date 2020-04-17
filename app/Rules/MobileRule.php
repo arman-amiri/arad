@@ -17,7 +17,8 @@ class MobileRule implements Rule
 	 */
 	public function passes($attribute, $value)
 	{
-		$mobileRegex = '~^(0098|\+?98|0)9\d{9}$~';
+		// $mobileRegex = '~^(0098|\+?98|0)9\d{9}$~';
+		$mobileRegex = '~^(0)9\d{9}$~';
 		preg_match($mobileRegex, $value, $maches);
 		return !empty($maches);
 	}

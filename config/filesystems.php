@@ -67,12 +67,16 @@ return [
 			'driver' => 'local',
 			'root'   => public_path('images/podcasts'),
 		],
-
-
-		'videos'      => [
+		'userAvatar' => [
 			'driver' => 'local',
-			'root'   => public_path('videos'),
+			'root'   => public_path('images/avatar'),
 		],
+
+
+		// 'videos'      => [
+		// 	'driver' => 'local',
+		// 	'root'   => public_path('videos'),
+		// ],
 		'video-image' => [
 			'driver' => 'local',
 			'root'   => public_path('images/videos'),
@@ -83,14 +87,21 @@ return [
 		],
 
 
+		'videos' => [
+			'driver'     => 'local',
+			'root'       => storage_path('videos'),
+			'url'        => env('APP_URL') . '/storage',
+			'visibility' => 'public',
+		],
+
+
+
 		'public' => [
 			'driver'     => 'local',
 			'root'       => storage_path('app/public'),
 			'url'        => env('APP_URL') . '/storage',
 			'visibility' => 'public',
 		],
-
-
 
 		's3' => [
 			'driver' => 's3',

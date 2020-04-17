@@ -19,10 +19,11 @@ class CreateUsersTable extends Migration
 
 			$table->bigIncrements('id');
 			$table->string('email', 100)->unique()->nullable();
-			$table->string('mobile', 14)->unique()->nullable();
-			$table->string('name')->nullable();
-			$table->string('password', 100)->nullable();
-			$table->enum('type', \App\User::TYPES)->default(\App\User::TYPE_USER);
+			$table->string('mobile', 14)->unique();
+			$table->string('name');
+			$table->string('password', 100);
+			$table->enum('level', \App\User::LEVELS)->default(\App\User::LEVEL_USER);
+			$table->enum('active', \App\User::ACTIVES)->default(\App\User::ACTIVE_YES);
 			$table->string('avatar', 100)->nullable();
 			$table->string('verify_code', 6)->nullable();
 			$table->timestamp('verified_at')->nullable();

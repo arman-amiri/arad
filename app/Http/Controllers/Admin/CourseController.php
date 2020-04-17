@@ -17,7 +17,7 @@ class CourseController extends Controller
 
 	public function index()
 	{
-		$record = Course::paginate(2);
+		$record = Course::paginate(1);
 
 		return view('admin.course.index')
 			->with('records', $record);
